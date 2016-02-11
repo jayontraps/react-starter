@@ -6,7 +6,6 @@ var babelify = require('babelify');
 var watchify = require('watchify');
 var notify = require('gulp-notify');
 
-var stylus = require('gulp-stylus');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 // var postcss = require('gulp-postcss');
@@ -34,11 +33,6 @@ gulp.task('styles',function() {
   //   .pipe(gulp.dest('build/css/fonts'))
 
   // // Compiles CSS
-  // gulp.src('css/style.styl')
-  //   .pipe(stylus())
-  //   .pipe(autoprefixer())
-  //   .pipe(gulp.dest('./build/css/'))
-  //   .pipe(reload({stream:true}))
 
       .pipe(sourcemaps.init())
       .pipe(sass({outputStyle: 'nested'}))
@@ -48,7 +42,7 @@ gulp.task('styles',function() {
       //         browsers: ['last 2 versions']
       //     })
       // ]))         
-      
+
       .pipe(autoprefixer())
       .pipe(sourcemaps.write())
       .pipe(gulp.dest('./build/css/'))
